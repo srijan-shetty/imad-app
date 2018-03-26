@@ -18,6 +18,6 @@ function moveRight () {
     img.style.marginLeft = marginLeft + 'px';
 }
 img.onclick = function () {
-    var internal = setInternal(moveLeftt, 100);
+    var internal = setInternal(moveLeft, 100);
     
-}
+};
