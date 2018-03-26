@@ -6,6 +6,6 @@ element.innerHTML="bthgrfreh";
 
 //to shift the image
 var img=document.getElementById("mad");
-img.onclick=function () {
-    img.style.marginleft="100px";
+img.onclick = function () {
+    img.style.marginLeft="100px";
 };
