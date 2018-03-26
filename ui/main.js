@@ -1,7 +1,7 @@
 console.log('Loaded!');
 
 //to change the content of the webpage
-var element= documnet.getElementById('text');
+var element= document.getElementById('text');
 element.innerHTML="bthgrfreh";
 
 //to shift the image
