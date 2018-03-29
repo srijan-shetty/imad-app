@@ -39,6 +39,6 @@ button.onclick=function() {
        //not dne yet 
     };
     //make a request
-   request.open('GET','http://http://srijanssnl406.imad.hasura-app.io/counter',true);
+   request.open('GET','http://srijanssnl406.imad.hasura-app.io/counter',true);
    request.send(null);
 };
