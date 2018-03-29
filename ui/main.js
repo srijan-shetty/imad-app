@@ -21,12 +21,24 @@ img.onclick = function () {
     var interval = setInterval(moveRight, 50);
     
 };*/
-var counter=0;
 var button=document.getElementById("counter");
 button.onclick=function() {
-    
+    //create a request object
     var request=new XMLHttpRequest();
-    counter=counter+1;
-    var span=document.getElementById("count");
+    
+    //capture the response and store it in a variable
+    request.onreadystatechsnge=function() {
+        if(request.readystate===XMLHtttpRequest.DONE) {
+            //take some action
+            if(request.status===200) {
+                var counter=request.responseText;
+                 var span=document.getElementById("count");
     span.innerHTML=counter.toString();
+            }
+        }
+       //not dne yet 
+    };
+    //make a request
+   request.open('GET','http://http://srijanssnl406.imad.hasura-app.io/counter',true);
+   request.send(null);
 };
