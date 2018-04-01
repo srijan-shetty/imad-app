@@ -21,7 +21,18 @@ img.onclick = function () {
     var interval = setInterval(moveRight, 50);
     
 };*/
-var button=document.getElementById("counter");
+//to simply update once page is clicked
+var counter=0;
+var button=document.geElementById("counter");
+button.onclick=function() {
+  counter=counter+1;
+  var span=document.getElementById("count");
+  span.innerHtml=counter.toString();
+};
+
+
+//to accept request and update later
+/*var button=document.getElementById("counter");
 button.onclick=function() {
     //create a request object
     var request=new XMLHttpRequest();
@@ -42,4 +53,4 @@ button.onclick=function() {
     //make a request
    request.open('GET','http://srijanssnl406.imad.hasura-app.io/counter',true);
    request.send(null);
-};
+};*/
