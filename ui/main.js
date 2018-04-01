@@ -23,13 +23,13 @@ img.onclick = function () {
 };*/
 //to simply update once page is clicked
 
-var button=document.geElementById("counter");
+/*var button=document.geElementById("counter");
 var counter=0;
 button.onclick=function() {
   counter=counter+1;
   var span=document.getElementById("count");
   span.innerHTML=counter.toString();
-};
+};*/
 
 
 //to accept request and update later
@@ -55,3 +55,25 @@ button.onclick=function() {
    request.open('GET','http://srijanssnl406.imad.hasura-app.io/counter',true);
    request.send(null);
 };*/
+
+//submit name
+
+var nameInput=document.getElementById("name");
+var name=nameInput.value();
+var submit=document.getElementById("submit_btn");
+submit.onclick= function() {
+    //make request to sever for names
+    
+    //capure name list and render it
+    var names=["name1","name2","name3"];
+    var list="";
+    for(var i=0;i<names.length;i++)
+    {
+        list='<li>'+ names[i]+'</li>';
+        
+    }
+    var ul=document.getElementById("namelist");
+    ul.innerHTML=list;
+    
+    
+};
