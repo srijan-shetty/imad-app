@@ -22,8 +22,9 @@ img.onclick = function () {
     
 };*/
 //to simply update once page is clicked
-var counter=0;
+
 var button=document.geElementById("counter");
+var counter=0;
 button.onclick=function() {
   counter=counter+1;
   var span=document.getElementById("count");
