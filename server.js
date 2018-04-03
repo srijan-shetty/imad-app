@@ -13,7 +13,7 @@ var config={
 var app = express();
 app.use(morgan('combined'));
 
-app.get('/', function (req, res) {
+app.get('/', function (req, result) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 var Pool= new Pool(config);
