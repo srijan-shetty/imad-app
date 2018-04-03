@@ -1,14 +1,6 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var Pool=require('pg').Pool;
-var config={
-    user:'srijanssnl406',
-    database:'srijanssnl406',
-    host:'db.imad.hasura-app.io:5432',
-    port:'5342',
-    password:process.env.DB_PASSWORD
-};
 
 var app = express();
 app.use(morgan('combined'));
@@ -16,37 +8,7 @@ app.use(morgan('combined'));
 app.get('/', function (req, result) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-var Pool= new Pool(config);
 
-/*app.get('/test-db',function(req,res) {
-   //make a request
-   //response
-   Pool.query('SELECT * FROM test', function(err,result) {
-       if(err) {
-       res.status(500).send(err.toString());
-       }else {
-           res.send(JSON.stringify(result.rows));
-       }
-       
-   });
-});*/
-app.get('/test-db',function(req,res)
-{
-	//make a query
-		//return a response
-	Pool.query('select * from test',function(err,res) 
-    { 
-		if(err)
-        {
-			res.status(500).send(err.toString());
-		}
-		else
-        {
-			res.send(JSON.stringify(result.rows)); 
-		}
-	});
-
-});
 var counter=0;
 app.get('/counter',function(req,res) {
     counter=counter+1;
