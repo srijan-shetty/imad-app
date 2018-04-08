@@ -8,7 +8,7 @@ var config  = {
     database:'srijanssnl406',
     host:'db.imad.hasura-app.io',
     port:'5432',
-    password:process.env.DB_PASSWORD
+    password:db-srijanssnl406-33647
     
 };
 
