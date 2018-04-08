@@ -1,16 +1,23 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var Pool=require('pg').Pool;
+//var Pool=require('pg').Pool;
+var mysql = require('mysql');
 
-var config  = {
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "myusername",
+  password: "mypassword",
+  database: "mydb"
+});
+/*var config  = {
     user:'srijanssnl406',
     database:'srijanssnl406',
     host:'db.imad.hasura-app.io',
     port:'5432',
     password:db-srijanssnl406-33647
     
-};
+};*/
 
 var app = express();
 app.use(morgan('combined'));
@@ -24,9 +31,9 @@ app.get('/counter',function(req,res) {
     counter=counter+1;
     res.send(counter.toString());
 });
-var pool= new Pool(config);
+//var pool= new Pool(config);
 
-app.get('/test-db',function(req,res)
+/*app.get('/test-db',function(req,res)
 {
     pool.query("SELECT * FROM test",function(err,result) {
         if(err) 
@@ -40,7 +47,19 @@ app.get('/test-db',function(req,res)
             
         }
     });
+});*/
+
+
+
+con.connect(function(err) {
+  if (err) throw err;
+  //Select all customers and return the result object:
+  con.query("SELECT * FROM customers", function (err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+  });
 });
+
 
 app.get('/article-one', function (req,res) {
    res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
