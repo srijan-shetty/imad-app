@@ -1,23 +1,6 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-//var Pool=require('pg').Pool;
-var mysql = require('mysql');
-
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "myusername",
-  password: "mypassword",
-  database: "mydb"
-});
-/*var config  = {
-    user:'srijanssnl406',
-    database:'srijanssnl406',
-    host:'db.imad.hasura-app.io',
-    port:'5432',
-    password:db-srijanssnl406-33647
-    
-};*/
 
 var app = express();
 app.use(morgan('combined'));
@@ -31,24 +14,6 @@ app.get('/counter',function(req,res) {
     counter=counter+1;
     res.send(counter.toString());
 });
-//var pool= new Pool(config);
-
-/*app.get('/test-db',function(req,res)
-{
-    pool.query("SELECT * FROM test",function(err,result) {
-        if(err) 
-        {
-            throw err;
-        }
-        else 
-        {
-            console.log(result);
-            console.log("database connected");
-            
-        }
-    });
-});*/
-
 
 
 con.connect(function(err) {
